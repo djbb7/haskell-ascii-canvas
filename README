@@ -1,0 +1,47 @@
+Proyecto 2 Haskell Septiembre-Diciembre 2010
+Autores: Daniel Bruzual 07-40681
+	 Maria Pacheco 07-41302
+	 
+Este programa fue probado utilizando el interprete ghci.
+Para poder compilarlo utilizando ghc hay que agregar un 
+main en el archivo Main.hs y correr el comando:
+
+ghc --make Main.hs
+
+=================================
+Detalles de Implementacion
+================================= 
+Los siguientes detalles de implementacion reflejan el comportamiento
+del programa en puntos donde el enunciado daba libertad de decision.
+
+>>Modulo Lienzo
+	
+dibujarLinea: se toma la longitud de la linea como el numero de
+caracteres que se pintan
+
+dibujarCirculo: se toma el radio como el numero de caracteres desde
+el centro de la circunferencia hasta el arco.
+
+>>Modulo Instrucciones
+
+DibujarCurva: el segundo parametro Magnitud de este constructor se
+toma como el numero de grados que barre la curva. Se hizo asi para
+brindar mayor abstraccion a quien utiliza el modulo. Es mas sencillo
+pensar en el angulo que se desea, ya que este no varia si se desea
+variar el radio del circulo.
+
+Triangularizar: Se asume que la lista de vertices suministrada contiene
+los vertices en el orden adecuado. Dado que el objetivo de un strip
+de triangulos es lograr la representacion de triangulos, de manera rapida,
+usando la menor cantidad de memoria, no tiene sentido perder tiempo analizando
+y reordenando los vertices.
+
+================================
+Recomendaciones y Mejoras
+================================
+Se podria restructurar la funcion "llenar", que tiene cuatro llamadas
+recursivas, para que tuviera una unica llamada. Se podria mantener una
+estructura de puntos por verificar/llenar que se pasa entre cada llamada.
+De esta manera se logra recursion de cola y se evita un posible desbordamiento
+de la pila en lienzos muy grandes.
+
